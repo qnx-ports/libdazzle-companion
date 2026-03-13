@@ -3,7 +3,7 @@
 # Maintainer: Felix Xing <fxing@qnx.com>
 pkgname=libdazzle
 pkgver=3.44.0
-pkgrel=0
+pkgrel=${pkgrel:-0}
 pkgdesc="Library to delight your users with fancy features"
 url="https://gitlab.gnome.org/GNOME/libdazzle"
 arch="all"
@@ -30,6 +30,7 @@ package() {
     DESTDIR="$pkgdir" meson install --no-rebuild -C output
 }
 
+options="$options ${DISABLE_CHECK:+!check}"
 sha512sums="
 eff3f65cbfd4f780afb4bda6137e8d4f1ee2cd0ab21288d07315415944ced1aa2d7ef89c2b7ebb373ac4c46b91d341bed063e9c7d1c21fa083514c8c3c9c518f  libdazzle-3.44.0.tar.xz
 "
